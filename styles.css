@@ -388,17 +388,56 @@ a {
 .social-links {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
-.social-links a {
-    padding: 10px 20px;
-    background: #4CAF50;
-    border-radius: 5px;
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
+    text-decoration: none;
+    color: white;
 }
 
-.social-links a:hover {
-    background: #2E7D32;
+.social-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.social-btn.whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.social-btn.whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.social-btn.telegram {
+    background: linear-gradient(135deg, #0088cc 0%, #0066aa 100%);
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+}
+
+.social-btn.telegram:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
+}
+
+.social-btn.max {
+    background: linear-gradient(135deg, #0084ff 0%, #7c3aed 100%);
+    box-shadow: 0 4px 15px rgba(0, 132, 255, 0.3);
+}
+
+.social-btn.max:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 132, 255, 0.4);
 }
 
 .footer-legal a {
