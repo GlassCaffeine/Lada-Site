@@ -215,13 +215,10 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-
     <!-- Модальное окно согласия на обработку данных -->
     <div id="consent-modal" class="modal-overlay">
         <div class="modal-content modal-collapsed">
-            <!-- Свернутая версия -->
-            <div class="modal-collapsed-view">
+            <div class="modal-main-view">
                 <div class="modal-mini-header">
                     <svg class="shield-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
@@ -232,25 +229,22 @@
                     </div>
                 </div>
                 <div class="modal-mini-actions">
-                    <button id="toggle-details" class="btn-toggle-details">
+                    <button type="button" id="toggle-details" class="btn-toggle-details">
                         <span class="toggle-text">Подробнее</span>
                         <svg class="toggle-arrow" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M7 10l5 5 5-5z"/>
                         </svg>
                     </button>
-                    <button id="consent-accept-mini" class="btn-accept-mini" disabled>
+                    <label class="btn-consent-label" for="consent-check-mini">
                         <input type="checkbox" id="consent-check-mini" class="consent-check-mini">
                         <span>Согласен</span>
-                    </button>
+                    </label>
                 </div>
             </div>
 
-            <!-- Развернутая версия -->
-            <div class="modal-expanded-view" style="display: none;">
-                <div class="modal-header">
-                    <h3>Согласие на обработку персональных данных</h3>
-                    <button id="collapse-modal" class="btn-collapse">×</button>
-                </div>
+            <!-- Дополнительная информация (скрыта по умолчанию) -->
+            <div id="legal-details" class="legal-details" style="display: none;">
+                <hr class="modal-divider">
                 <div class="modal-body">
                     <p>В соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных»:</p>
                     <p>Нажимая кнопку перехода в мессенджер, вы даёте <strong>своё согласие</strong> на обработку ваших персональных данных, включая:</p>
@@ -264,12 +258,10 @@
                     <p>Вы имеете право отозвать согласие в любой момент, направив соответствующий запрос.</p>
                     <p>Подробная информация — в <a href="privacy.html" target="_blank">Политике конфиденциальности</a>.</p>
                 </div>
-                <div class="modal-footer">
-                    <button id="consent-cancel" class="btn-modal btn-cancel">Отмена</button>
-                    <button id="consent-accept" class="btn-modal btn-accept">Продолжить</button>
-                </div>
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -35,19 +35,14 @@ document.querySelectorAll('.result-card, .for-whom-item, .process-step, .approac
     observer.observe(el);
 });
 
-// ===== МОДАЛЬНОЕ ОКНО СОГЛАСИЯ НА ОБРАБОТКУ ДАННЫХ =====
+// ===== МОДАЛЬНОЕ ОКНО СОГЛАСИЯ =====
 document.addEventListener('DOMContentLoaded', function() {
     const consentModal = document.getElementById('consent-modal');
-    const modalContent = consentModal.querySelector('.modal-content');
+    const legalDetails = document.getElementById('legal-details');
     const toggleDetails = document.getElementById('toggle-details');
-    const collapseModal = document.getElementById('collapse-modal');
-    const consentAccept = document.getElementById('consent-accept');
-    const consentCancel = document.getElementById('consent-cancel');
-    const consentAcceptMini = document.getElementById('consent-accept-mini');
     const consentCheckMini = document.getElementById('consent-check-mini');
     let pendingUrl = null;
 
-    // Находим все кнопки мессенджеров (CTA кнопки + кнопки в футере)
     const messengerButtons = document.querySelectorAll('a[href*="wa.me"], a[href*="t.me"], a[href*="max.ru"]');
 
     messengerButtons.forEach(btn => {
@@ -56,7 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
             const url = this.getAttribute('href');
             
-            // Проверяем, давал ли пользователь согласие ранее
             if (localStorage.getItem('consentGiven') === 'true') {
                 window.open(url, '_blank');
             } else {
@@ -67,27 +61,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Кнопка "Подробнее" - разворачивает модалку
     toggleDetails.addEventListener('click', function() {
-        modalContent.classList.add('modal-expanded');
-        this.classList.add('expanded');
-        this.querySelector('.toggle-text').textContent = 'Свернуть';
+        if (legalDetails.style.display === 'none') {
+            legalDetails.style.display = 'block';
+            this.classList.add('expanded');
+            this.querySelector('.toggle-text').textContent = 'Свернуть';
+        } else {
+            legalDetails.style.display = 'none';
+            this.classList.remove('expanded');
+            this.querySelector('.toggle-text').textContent = 'Подробнее';
+        }
     });
 
-    // Кнопка "Свернуть" в развернутой версии
-    collapseModal.addEventListener('click', function() {
-        modalContent.classList.remove('modal-expanded');
-        toggleDetails.classList.remove('expanded');
-        toggleDetails.querySelector('.toggle-text').textContent = 'Подробнее';
-    });
-
-    // Мини-кнопка "Согласен" в свернутой версии
     consentCheckMini.addEventListener('change', function() {
-        consentAcceptMini.disabled = !this.checked;
-    });
-
-    consentAcceptMini.addEventListener('click', function() {
-        if (consentCheckMini.checked && pendingUrl) {
+        if (this.checked && pendingUrl) {
             localStorage.setItem('consentGiven', 'true');
             localStorage.setItem('consentDate', new Date().toISOString());
             closeModal();
@@ -96,54 +83,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Кнопка "Продолжить" в развернутой версии
-    consentAccept.addEventListener('click', function() {
-        if (pendingUrl) {
-            localStorage.setItem('consentGiven', 'true');
-            localStorage.setItem('consentDate', new Date().toISOString());
-            closeModal();
-            window.open(pendingUrl, '_blank');
-            pendingUrl = null;
-        }
-    });
-
-    // Кнопка "Отмена"
-    consentCancel.addEventListener('click', function() {
-        closeModal();
-    });
-
-    // Закрытие при клике на оверлей
     consentModal.addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeModal();
-        }
+        if (e.target === this) closeModal();
     });
 
-    // Закрытие по Escape
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && consentModal.classList.contains('active')) {
-            closeModal();
-        }
+        if (e.key === 'Escape' && consentModal.classList.contains('active')) closeModal();
     });
 
     function closeModal() {
         consentModal.classList.remove('active');
-        modalContent.classList.remove('modal-expanded');
+        legalDetails.style.display = 'none';
         document.body.style.overflow = '';
         consentCheckMini.checked = false;
-        consentAcceptMini.disabled = true;
         toggleDetails.classList.remove('expanded');
         toggleDetails.querySelector('.toggle-text').textContent = 'Подробнее';
     }
 });
 
-// Обработка кликов по кнопкам CTA для отслеживания (можно добавить аналитику)
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.btn-primary').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            // Здесь можно добавить код для отслеживания конверсий
-            // Например, Google Analytics или Яндекс.Метрика
-            console.log('CTA clicked:', this.textContent.trim());
-        });
+// Обработка кликов по кнопкам CTA для отслеживания
+document.querySelectorAll('.btn-primary').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        console.log('CTA clicked:', this.textContent.trim());
     });
 });
