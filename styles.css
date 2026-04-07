@@ -65,16 +65,18 @@ a {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #b4a078 0%, #8a7a60 100%);
-    color: #2a2a2a;
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
     font-weight: 700;
-    box-shadow: 0 4px 20px rgba(180, 160, 120, 0.4);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(212, 175, 55, 0.2);
+    border: 2px solid #d4af37;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(180, 160, 120, 0.5);
-    background: linear-gradient(135deg, #c4b088 0%, #9a8a70 100%);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.35), inset 0 1px 0 rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.15);
+    background: linear-gradient(145deg, #222 0%, #333 40%, #222 100%);
 }
 
 .btn-large {
@@ -155,7 +157,7 @@ a {
     transform: translateY(-50%);
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(180, 160, 120, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     z-index: 0;
 }
@@ -198,8 +200,18 @@ a {
 }
 
 .for-whom-item .icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
 }
 
 .for-whom-item p {
@@ -244,14 +256,17 @@ a {
     left: 20px;
     width: 40px;
     height: 40px;
-    background: linear-gradient(135deg, #b4a078 0%, #8a7a60 100%);
-    color: #2a2a2a;
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-size: 1.2rem;
+    border: 2px solid #d4af37;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.25);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .result-card h3 {
@@ -293,8 +308,8 @@ a {
 .step-number {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #b4a078 0%, #8a7a60 100%);
-    color: #2a2a2a;
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -302,6 +317,9 @@ a {
     font-weight: 700;
     font-size: 1.3rem;
     flex-shrink: 0;
+    border: 2px solid #d4af37;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.25);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .process-step p {
@@ -329,7 +347,7 @@ a {
 
 .about-text li {
     margin-bottom: 1rem;
-    padding-left: 30px;
+    padding-left: 40px;
     position: relative;
     color: rgba(232, 224, 212, 0.85);
 }
@@ -338,8 +356,19 @@ a {
     content: '✓';
     position: absolute;
     left: 0;
-    color: #b4a078;
+    top: 2px;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
     font-weight: 700;
+    box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
 }
 
 .about-text strong {
@@ -373,8 +402,18 @@ a {
 }
 
 .approach-item .check {
-    font-size: 1.5rem;
-    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
 }
 
 .approach-text {
@@ -410,13 +449,15 @@ a {
 }
 
 .final-cta .btn-primary {
-    background: linear-gradient(135deg, #b4a078 0%, #8a7a60 100%);
-    color: #2a2a2a;
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
     font-weight: 700;
+    border: 2px solid #d4af37;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .final-cta .btn-primary:hover {
-    background: linear-gradient(135deg, #c4b088 0%, #9a8a70 100%);
+    background: linear-gradient(145deg, #222 0%, #333 40%, #222 100%);
 }
 
 /* ===== FOOTER ===== */
@@ -469,33 +510,39 @@ a {
 }
 
 .social-btn.whatsapp {
-    background: linear-gradient(135deg, #b4a078 0%, #8a7a60 100%);
-    box-shadow: 0 4px 15px rgba(180, 160, 120, 0.3);
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(212, 175, 55, 0.15);
+    border: 2px solid #d4af37;
 }
 
 .social-btn.whatsapp:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(180, 160, 120, 0.4);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2), 0 0 12px rgba(212, 175, 55, 0.1);
 }
 
 .social-btn.telegram {
-    background: linear-gradient(135deg, #a89880 0%, #8a7a68 100%);
-    box-shadow: 0 4px 15px rgba(168, 152, 128, 0.3);
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(212, 175, 55, 0.15);
+    border: 2px solid #d4af37;
 }
 
 .social-btn.telegram:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(168, 152, 128, 0.4);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2), 0 0 12px rgba(212, 175, 55, 0.1);
 }
 
 .social-btn.max {
-    background: linear-gradient(135deg, #9a8a70 0%, #7a6a55 100%);
-    box-shadow: 0 4px 15px rgba(154, 138, 112, 0.3);
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(212, 175, 55, 0.15);
+    border: 2px solid #d4af37;
 }
 
 .social-btn.max:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(154, 138, 112, 0.4);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2), 0 0 12px rgba(212, 175, 55, 0.1);
 }
 
 .footer-legal a {
@@ -564,7 +611,7 @@ a {
 .shield-icon {
     width: 36px;
     height: 36px;
-    color: #b4a078;
+    color: #d4af37;
     flex-shrink: 0;
 }
 
@@ -582,7 +629,7 @@ a {
 }
 
 .modal-mini-text a {
-    color: #b4a078;
+    color: #d4af37;
 }
 
 .modal-mini-actions {
@@ -606,8 +653,8 @@ a {
 }
 
 .btn-toggle-details:hover {
-    background: rgba(180, 160, 120, 0.15);
-    color: #b4a078;
+    background: rgba(212, 175, 55, 0.1);
+    color: #d4af37;
 }
 
 .toggle-arrow {
@@ -625,26 +672,29 @@ a {
     align-items: center;
     gap: 8px;
     padding: 8px 16px;
-    background: linear-gradient(135deg, #b4a078 0%, #8a7a60 100%);
-    color: #2a2a2a;
+    background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+    color: #d4af37;
     border-radius: 50px;
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 600;
     transition: all 0.3s ease;
     margin-left: auto;
+    border: 2px solid #d4af37;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(212, 175, 55, 0.15);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .btn-consent-label:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(180, 160, 120, 0.4);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(212, 175, 55, 0.2), 0 0 12px rgba(212, 175, 55, 0.1);
 }
 
 .btn-consent-label input[type="checkbox"] {
     width: 18px;
     height: 18px;
     cursor: pointer;
-    accent-color: #b4a078;
+    accent-color: #d4af37;
     margin: 0;
     flex-shrink: 0;
 }
@@ -681,7 +731,7 @@ a {
 }
 
 .modal-body a {
-    color: #b4a078;
+    color: #d4af37;
 }
 
 .modal-body strong {
@@ -829,9 +879,11 @@ a {
     }
 
     .btn-primary {
-        background: linear-gradient(135deg, #b4a078 0%, #8a7a60 100%);
-        color: #2a2a2a;
+        background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%);
+        color: #d4af37;
         font-weight: 700;
+        border: 2px solid #d4af37;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     }
 
     .btn-large {
