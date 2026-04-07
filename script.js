@@ -38,9 +38,13 @@ document.querySelectorAll('.result-card, .for-whom-item, .process-step, .approac
 // ===== МОДАЛЬНОЕ ОКНО СОГЛАСИЯ НА ОБРАБОТКУ ДАННЫХ =====
 document.addEventListener('DOMContentLoaded', function() {
     const consentModal = document.getElementById('consent-modal');
-    const consentCheck = document.getElementById('consent-check');
+    const modalContent = consentModal.querySelector('.modal-content');
+    const toggleDetails = document.getElementById('toggle-details');
+    const collapseModal = document.getElementById('collapse-modal');
     const consentAccept = document.getElementById('consent-accept');
     const consentCancel = document.getElementById('consent-cancel');
+    const consentAcceptMini = document.getElementById('consent-accept-mini');
+    const consentCheckMini = document.getElementById('consent-check-mini');
     let pendingUrl = null;
 
     // Находим все кнопки мессенджеров (CTA кнопки + кнопки в футере)
@@ -63,22 +67,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Активация кнопки "Продолжить" при установке галочки
-    consentCheck.addEventListener('change', function() {
-        consentAccept.disabled = !this.checked;
+    // Кнопка "Подробнее" - разворачивает модалку
+    toggleDetails.addEventListener('click', function() {
+        modalContent.classList.add('modal-expanded');
+        this.classList.add('expanded');
+        this.querySelector('.toggle-text').textContent = 'Свернуть';
     });
 
-    // Кнопка "Продолжить"
-    consentAccept.addEventListener('click', function() {
-        if (consentCheck.checked && pendingUrl) {
-            // Сохраняем согласие в localStorage
+    // Кнопка "Свернуть" в развернутой версии
+    collapseModal.addEventListener('click', function() {
+        modalContent.classList.remove('modal-expanded');
+        toggleDetails.classList.remove('expanded');
+        toggleDetails.querySelector('.toggle-text').textContent = 'Подробнее';
+    });
+
+    // Мини-кнопка "Согласен" в свернутой версии
+    consentCheckMini.addEventListener('change', function() {
+        consentAcceptMini.disabled = !this.checked;
+    });
+
+    consentAcceptMini.addEventListener('click', function() {
+        if (consentCheckMini.checked && pendingUrl) {
             localStorage.setItem('consentGiven', 'true');
             localStorage.setItem('consentDate', new Date().toISOString());
-            
-            // Закрываем модальное окно
             closeModal();
-            
-            // Переходим по ссылке
+            window.open(pendingUrl, '_blank');
+            pendingUrl = null;
+        }
+    });
+
+    // Кнопка "Продолжить" в развернутой версии
+    consentAccept.addEventListener('click', function() {
+        if (pendingUrl) {
+            localStorage.setItem('consentGiven', 'true');
+            localStorage.setItem('consentDate', new Date().toISOString());
+            closeModal();
             window.open(pendingUrl, '_blank');
             pendingUrl = null;
         }
@@ -105,9 +128,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function closeModal() {
         consentModal.classList.remove('active');
+        modalContent.classList.remove('modal-expanded');
         document.body.style.overflow = '';
-        consentCheck.checked = false;
-        consentAccept.disabled = true;
+        consentCheckMini.checked = false;
+        consentAcceptMini.disabled = true;
+        toggleDetails.classList.remove('expanded');
+        toggleDetails.querySelector('.toggle-text').textContent = 'Подробнее';
     }
 });
 
